@@ -1251,9 +1251,7 @@
           <!-- Netlify Forms: works automatically on Netlify deployment.
                For Vercel, replace action="#" with a Formspree endpoint:
                action="https://formspree.io/f/YOUR_ID" method="POST" -->
-          <form name="podcast-application" data-netlify="true" netlify-honeypot="bot-field" id="applyForm">
-            <input type="hidden" name="form-name" value="podcast-application">
-            <p style="display:none"><input name="bot-field"></p>
+          <form id="applyForm">
 
             <div class="apply-fields">
               <div class="apply-field">
@@ -1982,15 +1980,15 @@
         e.preventDefault();
         const data = new FormData(applyForm);
         try {
-          const r = await fetch('/', { method: 'POST', body: data });
+          const r = await fetch('https://formspree.io/f/xwvyeqwp', { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
           if (r.ok) {
             applyForm.style.display = 'none';
             applySuccess.style.display = 'block';
           } else {
-            applyForm.submit(); // fallback: native submit
+            alert('Something went wrong. Please try again or email us directly.');
           }
         } catch {
-          applyForm.submit();
+          alert('Something went wrong. Please check your connection and try again.');
         }
       });
     }
