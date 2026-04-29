@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/_rss", "destination": "https://feeds.transistor.fm/brand-to-scale" },
+    { "source": "/_yt",  "destination": "https://www.youtube.com/@alchemybrandingstudio" }
+  ]
+}

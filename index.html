@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand to Scale — The Podcast</title>
+  <meta name="description" content="Business leaders and industry influencers share the real stories behind building their brands. A podcast by Alchemy Branding Studio.">
+  <meta property="og:title" content="Brand to Scale — The Podcast">
+  <meta property="og:description" content="Business leaders and industry influencers share the real stories behind building their brands.">
+  <meta property="og:url" content="https://brandtoscale.co.uk">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://brandtoscale.co.uk">
+  <link rel="icon" href="images/Favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dawn:          #191919;
+      --dragon-fire:   #FE6D4C;
+      --dusk:          #FAF8F7;
+      --pixie-pink:    #FE86F6;
+      --curious-blue:  #3052F9;
+      --mindaro:       #C4FE79;
+      --space-green:   #00524D;
+      --ultra-violet:  #9A4EFF;
+
+      --font-sans:   'Satoshi', system-ui, sans-serif;
+      --font-serif:  'Lora', Georgia, 'Times New Roman', serif;
+
+      --nav-h:     72px;
+      --pad-y:     clamp(64px, 8vw, 120px);
+      --pad-x:     clamp(20px, 5vw, 48px);
+      --max-w:     1200px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--dawn);
+      color: var(--dusk);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── UTILITIES ─────────────────────────────────────────── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* ─── ANIMATIONS ─────────────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.10s; }
+    .d2 { transition-delay: 0.20s; }
+    .d3 { transition-delay: 0.30s; }
+    .d4 { transition-delay: 0.40s; }
+    .d5 { transition-delay: 0.50s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ─── BUTTONS ─────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 100px;
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      line-height: 1;
+    }
+    .btn:hover  { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: var(--dragon-fire);
+      color: var(--dawn);
+      box-shadow: 0 0 0 0 rgba(254,109,76,0);
+    }
+    .btn-primary:hover { box-shadow: 0 8px 28px rgba(254,109,76,0.35); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--dusk);
+      border: 1.5px solid rgba(250,248,247,0.25);
+    }
+    .btn-outline:hover { border-color: rgba(250,248,247,0.6); box-shadow: none; }
+
+    .btn-dark {
+      background: var(--dawn);
+      color: var(--dusk);
+    }
+    .btn-dark:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
+
+    .btn-sm { padding: 9px 20px; font-size: 12px; }
+
+    /* ─── NAV ─────────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      padding: 0 var(--pad-x);
+      transition: background 0.3s, backdrop-filter 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background: rgba(25,25,25,0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-color: rgba(250,248,247,0.07);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    .nav-logo-text {
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--dusk);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo-text em {
+      font-style: normal;
+      color: var(--dragon-fire);
+    }
+    .nav-logo-img {
+      height: 42px;
+      width: auto;
+      display: block;
+    }
+    .footer-logo-img {
+      height: 26px;
+      width: auto;
+      display: block;
+    }
+    .alchemy-logo-img {
+      height: 20px;
+      width: auto;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .alchemy-logo-about {
+      height: 36px;
+      width: auto;
+      display: block;
+      transition: opacity 0.2s;
+    }
+    .alchemy-logo-about:hover { opacity: 0.75; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(250,248,247,0.6);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--dusk); }
+
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+    .nav-burger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--dusk);
+      border-radius: 2px;
+      transition: transform 0.28s ease, opacity 0.28s ease;
+    }
+    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu */
+    .nav-mobile {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      right: 0;
+      z-index: 99;
+      background: rgba(25,25,25,0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(250,248,247,0.08);
+      padding: 28px var(--pad-x) 32px;
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-mobile.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nav-mobile ul { list-style: none; display: flex; flex-direction: column; gap: 22px; margin-bottom: 28px; }
+    .nav-mobile a { color: var(--dusk); text-decoration: none; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+
+    /* ─── HERO ─────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: calc(var(--nav-h) + 80px) var(--pad-x) 100px;
+      position: relative;
+      overflow: hidden;
+      background-image: url('images/hero/Hero-home.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    /* Dark scrim — keeps text legible over the photo */
+    .hero-orb-1 {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(25, 25, 25, 0.82) 0%,
+        rgba(25, 25, 25, 0.55) 50%,
+        rgba(25, 25, 25, 0.45) 100%
+      );
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+    }
+    /* Subtle orange glow — top right, kept from original */
+    .hero-orb-2 {
+      position: absolute;
+      top: -15%;
+      right: -8%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(254,109,76,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--dragon-fire);
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--dragon-fire);
+      flex-shrink: 0;
+    }
+
+    .hero-headline {
+      font-weight: 900;
+      font-size: clamp(52px, 9vw, 130px);
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      color: var(--dusk);
+      margin-bottom: 32px;
+      max-width: 1000px;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--dragon-fire);
+    }
+
+    .hero-sub {
+      font-family: var(--font-serif);
+      font-size: clamp(17px, 2vw, 22px);
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(250,248,247,0.65);
+      max-width: 520px;
+      margin-bottom: 52px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 60px;
+    }
+
+    .platform-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .platform-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(250,248,247,0.3);
+      margin-right: 8px;
+    }
+    .platform-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: rgba(250,248,247,0.55);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 14px;
+      border-radius: 100px;
+      border: 1px solid rgba(250,248,247,0.1);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .platform-link:hover {
+      color: var(--dusk);
+      border-color: rgba(250,248,247,0.3);
+    }
+
+    .hero-scroll {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(250,248,247,0.25);
+    }
+    .hero-scroll-line {
+      width: 36px;
+      height: 1px;
+      background: rgba(250,248,247,0.2);
+    }
+
+    /* ─── SECTION COMMONS ────────────────────────────────────── */
+    .section {
+      padding: var(--pad-y) var(--pad-x);
+      border-top: 1px solid rgba(250,248,247,0.07);
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--dragon-fire);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-weight: 900;
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      color: var(--dusk);
+    }
+    .section-header { margin-bottom: 48px; }
+
+    /* ─── LOADING / ERROR ────────────────────────────────────── */
+    .loading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(250,248,247,0.4);
+      font-size: 14px;
+      padding: 20px 0;
+    }
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(254,109,76,0.2);
+      border-top-color: var(--dragon-fire);
+      border-radius: 50%;
+      animation: spin 0.75s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ─── LATEST EPISODE ─────────────────────────────────────── */
+    .latest-grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .ep-artwork {
+      aspect-ratio: 1;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #252525;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+    }
+    .ep-artwork img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ep-artwork-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #242424 0%, #2e2e2e 100%);
+    }
+
+    .ep-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .ep-number {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dragon-fire);
+      background: rgba(254,109,76,0.1);
+      border: 1px solid rgba(254,109,76,0.2);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .ep-date {
+      font-size: 13px;
+      color: rgba(250,248,247,0.38);
+    }
+    .ep-duration {
+      font-size: 13px;
+      color: rgba(250,248,247,0.38);
+    }
+    .ep-duration::before { content: '· '; }
+
+    .ep-title {
+      font-weight: 700;
+      font-size: clamp(22px, 2.8vw, 34px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--dusk);
+      margin-bottom: 16px;
+    }
+
+    .ep-desc {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(250,248,247,0.62);
+      margin-bottom: 32px;
+    }
+
+    .ep-player {
+      margin-bottom: 28px;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .ep-player iframe {
+      width: 100%;
+      height: 182px;
+      border: none;
+      display: block;
+      border-radius: 14px;
+    }
+
+    .ep-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ─── YOUTUBE ─────────────────────────────────────────────── */
+    .yt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .yt-embed-wrap {
+      position: relative;
+      aspect-ratio: 16/9;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #111;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+    }
+    .yt-embed-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .yt-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      text-decoration: none;
+      color: rgba(250,248,247,0.5);
+      transition: color 0.2s;
+    }
+    .yt-fallback:hover { color: var(--dusk); }
+    .yt-fallback span { font-size: 14px; font-weight: 600; }
+
+    .yt-content .section-header { margin-bottom: 20px; }
+    .yt-desc {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(250,248,247,0.62);
+      margin-bottom: 36px;
+    }
+
+    /* ─── EPISODES LIST ───────────────────────────────────────── */
+    .episodes-list { display: flex; flex-direction: column; }
+
+    .ep-row {
+      display: grid;
+      grid-template-columns: 72px 1fr max-content;
+      gap: 20px;
+      align-items: center;
+      padding: 24px 16px;
+      border-bottom: 1px solid rgba(250,248,247,0.07);
+      border-radius: 8px;
+      transition: background 0.2s;
+      margin: 0 -16px;
+    }
+    .ep-row:first-child { border-top: 1px solid rgba(250,248,247,0.07); }
+    .ep-row:hover { background: rgba(250,248,247,0.03); }
+    .ep-row:hover .ep-row-arrow { transform: translateX(4px); color: var(--dragon-fire); }
+
+    .ep-row-thumb {
+      width: 72px;
+      height: 72px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #252525;
+      flex-shrink: 0;
+      display: block;
+    }
+    .ep-row-thumb-ph {
+      width: 72px;
+      height: 72px;
+      border-radius: 8px;
+      background: linear-gradient(145deg, #252525, #2e2e2e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ep-row-body { min-width: 0; }
+    .ep-row-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .ep-row-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dragon-fire);
+    }
+    .ep-row-date {
+      font-size: 12px;
+      color: rgba(250,248,247,0.32);
+    }
+    .ep-row-title {
+      font-weight: 700;
+      font-size: clamp(15px, 1.4vw, 17px);
+      line-height: 1.3;
+      color: var(--dusk);
+      margin-bottom: 5px;
+      transition: color 0.2s;
+      text-decoration: none;
+      display: block;
+    }
+    .ep-row-title:hover { color: var(--dragon-fire); }
+    .ep-row-desc {
+      font-size: 13px;
+      line-height: 1.55;
+      color: rgba(250,248,247,0.45);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .ep-row-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      padding-left: 8px;
+    }
+    .ep-row-dur {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(250,248,247,0.35);
+      white-space: nowrap;
+    }
+    .ep-row-arrow {
+      color: rgba(250,248,247,0.25);
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    /* ─── EPISODE INLINE PLAYER ──────────────────────────────── */
+    .ep-row-play {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(254,109,76,0.1);
+      border: 1.5px solid rgba(254,109,76,0.25);
+      color: var(--dragon-fire);
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .ep-row-play:hover {
+      background: var(--dragon-fire);
+      color: var(--dawn);
+      border-color: var(--dragon-fire);
+      transform: scale(1.08);
+    }
+    .ep-row-play.playing {
+      background: var(--dragon-fire);
+      color: var(--dawn);
+      border-color: var(--dragon-fire);
+    }
+
+    .ep-inline-player {
+      padding: 0 16px 20px;
+      border-bottom: 1px solid rgba(250,248,247,0.07);
+      background: rgba(254,109,76,0.03);
+      margin: 0 -16px;
+    }
+    .ep-inline-player iframe {
+      width: 100%;
+      height: 182px;
+      border: none;
+      border-radius: 10px;
+      display: block;
+    }
+
+    /* ─── APPLY SECTION ──────────────────────────────────────── */
+    .apply-section { background: #141414; }
+    .apply-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .apply-intro {
+      font-family: var(--font-serif);
+      font-size: clamp(15px, 1.5vw, 18px);
+      line-height: 1.7;
+      color: rgba(250,248,247,0.6);
+      margin-top: 16px;
+      max-width: 420px;
+    }
+    .apply-form {
+      background: rgba(250,248,247,0.03);
+      border: 1px solid rgba(250,248,247,0.08);
+      border-radius: 20px;
+      padding: clamp(28px, 4vw, 48px);
+    }
+    .apply-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .apply-field { display: flex; flex-direction: column; gap: 8px; }
+    .apply-field--full { grid-column: 1 / -1; }
+    .apply-field label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: rgba(250,248,247,0.45);
+    }
+    .apply-optional {
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .apply-field input,
+    .apply-field textarea {
+      background: rgba(250,248,247,0.05);
+      border: 1px solid rgba(250,248,247,0.1);
+      border-radius: 10px;
+      padding: 13px 16px;
+      color: var(--dusk);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.5;
+      transition: border-color 0.2s, background 0.2s;
+      resize: vertical;
+      width: 100%;
+    }
+    .apply-field input::placeholder,
+    .apply-field textarea::placeholder { color: rgba(250,248,247,0.2); }
+    .apply-field input:focus,
+    .apply-field textarea:focus {
+      outline: none;
+      border-color: var(--dragon-fire);
+      background: rgba(250,248,247,0.07);
+    }
+    .apply-submit { width: 100%; justify-content: center; }
+    .apply-success {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--dusk);
+    }
+    .apply-success-icon {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(254,109,76,0.15);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+      color: var(--dragon-fire);
+    }
+    .apply-success h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .apply-success p { font-family: var(--font-serif); color: rgba(250,248,247,0.55); font-size: 15px; }
+    @media (max-width: 860px) {
+      .apply-inner { grid-template-columns: 1fr; gap: 40px; }
+      .apply-fields { grid-template-columns: 1fr; }
+    }
+
+    /* ─── ABOUT STRIP ─────────────────────────────────────────── */
+    .about-strip {
+      background: var(--dragon-fire);
+      padding: clamp(52px, 7vw, 96px) var(--pad-x);
+    }
+    .about-strip-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+    }
+    .about-strip-title {
+      font-weight: 900;
+      font-size: clamp(26px, 3.5vw, 46px);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      color: var(--dawn);
+      margin-bottom: 16px;
+    }
+    .about-strip-text {
+      font-family: var(--font-serif);
+      font-size: clamp(15px, 1.5vw, 18px);
+      line-height: 1.65;
+      color: rgba(25,25,25,0.7);
+      max-width: 640px;
+    }
+    .about-link {
+      color: var(--dawn);
+      text-decoration: underline;
+      text-decoration-color: rgba(25,25,25,0.3);
+      text-underline-offset: 3px;
+    }
+    .about-link:hover { text-decoration-color: var(--dawn); }
+    .about-logos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .about-logos-sep {
+      width: 28px;
+      height: 1px;
+      background: rgba(25,25,25,0.2);
+    }
+    .echo-works-logo {
+      height: 44px;
+      width: auto;
+      display: block;
+      transition: opacity 0.2s;
+    }
+    .echo-works-logo:hover { opacity: 0.75; }
+
+    /* ─── EPISODES PAGINATION ─────────────────────────────────── */
+    .ep-pagination {
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(250,248,247,0.08);
+    }
+    .ep-pagination-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 24px;
+      border-radius: 100px;
+      border: 1.5px solid rgba(250,248,247,0.2);
+      background: transparent;
+      color: var(--dusk);
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s, opacity 0.2s;
+    }
+    .ep-pagination-btn:hover:not(:disabled) {
+      border-color: var(--dragon-fire);
+      color: var(--dragon-fire);
+    }
+    .ep-pagination-btn:disabled { opacity: 0.2; cursor: default; }
+    .ep-pagination-info {
+      font-size: 13px;
+      color: rgba(250,248,247,0.4);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+    @keyframes epSlideNext {
+      from { opacity: 0; transform: translateX(28px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes epSlidePrev {
+      from { opacity: 0; transform: translateX(-28px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .ep-slide-next .ep-row { animation: epSlideNext 0.32s ease both; }
+    .ep-slide-prev .ep-row { animation: epSlidePrev 0.32s ease both; }
+    .ep-slide-next .ep-row:nth-child(1), .ep-slide-prev .ep-row:nth-child(1) { animation-delay: 0s; }
+    .ep-slide-next .ep-row:nth-child(2), .ep-slide-prev .ep-row:nth-child(2) { animation-delay: 0.05s; }
+    .ep-slide-next .ep-row:nth-child(3), .ep-slide-prev .ep-row:nth-child(3) { animation-delay: 0.10s; }
+    .ep-slide-next .ep-row:nth-child(4), .ep-slide-prev .ep-row:nth-child(4) { animation-delay: 0.15s; }
+
+    /* ─── FOOTER ──────────────────────────────────────────────── */
+    footer {
+      padding: 48px var(--pad-x) 40px;
+      border-top: 1px solid rgba(250,248,247,0.07);
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+    .footer-logo-text {
+      font-weight: 900;
+      font-size: 16px;
+      color: var(--dusk);
+      letter-spacing: -0.02em;
+    }
+    .footer-logo-text em { font-style: normal; color: var(--dragon-fire); }
+    .footer-logo { text-decoration: none; }
+
+    .footer-platforms {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-platform {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: rgba(250,248,247,0.45);
+      font-size: 13px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .footer-platform:hover { color: var(--dusk); }
+
+    .footer-copy {
+      width: 100%;
+      padding-top: 24px;
+      border-top: 1px solid rgba(250,248,247,0.06);
+      font-size: 13px;
+      color: rgba(250,248,247,0.28);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-copy a {
+      color: var(--dragon-fire);
+      text-decoration: none;
+    }
+    .footer-copy a:hover { text-decoration: underline; }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .latest-grid {
+        grid-template-columns: 1fr;
+        gap: 44px;
+      }
+      .ep-artwork {
+        max-width: 380px;
+      }
+      .yt-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .yt-content .section-header { margin-bottom: 16px; }
+      .about-strip-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-right .btn { display: none; }
+      .nav-burger { display: flex; }
+
+      .ep-row { grid-template-columns: 64px 1fr; }
+      .ep-row-right { display: none; }
+    }
+
+    @media (max-width: 520px) {
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-copy { flex-direction: column; align-items: flex-start; }
+      .ep-row { grid-template-columns: 56px 1fr; gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════════════════════ -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Brand to Scale home">
+        <img src="images/Logo_White.png" alt="Brand to Scale" class="nav-logo-img">
+      </a>
+
+      <ul class="nav-links" aria-label="Main navigation">
+        <li><a href="#latest">Latest</a></li>
+        <li><a href="#watch">Watch</a></li>
+        <li><a href="#episodes">All Episodes</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="#" class="btn btn-primary btn-sm" id="navSpotifyBtn"
+           data-platform="spotify" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+          </svg>
+          Follow on Spotify
+        </a>
+        <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="navMobile" aria-hidden="true">
+    <ul>
+      <li><a href="#latest">Latest</a></li>
+      <li><a href="#watch">Watch</a></li>
+      <li><a href="#episodes">All Episodes</a></li>
+    </ul>
+    <a href="#" class="btn btn-primary" data-platform="spotify" target="_blank" rel="noopener">Follow on Spotify</a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-orb-1" aria-hidden="true"></div>
+    <div class="hero-orb-2" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="hero-eyebrow fade-in">The Podcast</div>
+
+      <h1 class="hero-headline fade-in d1">
+        How brands<br>
+        get <em>built.</em>
+      </h1>
+
+      <p class="hero-sub fade-in d2">
+        Business leaders and industry influencers share the real stories behind building their brands — from the first idea to the breakthrough moment.
+      </p>
+
+      <div class="hero-actions fade-in d3">
+        <a href="#latest" class="btn btn-primary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          Listen Now
+        </a>
+        <a href="#episodes" class="btn btn-outline">All Episodes</a>
+      </div>
+
+      <div class="platform-row fade-in d4">
+        <span class="platform-label">Listen on</span>
+
+        <a href="#" class="platform-link" data-platform="spotify" target="_blank" rel="noopener" aria-label="Listen on Spotify">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+          </svg>
+          Spotify
+        </a>
+
+        <a href="#" class="platform-link" data-platform="apple" target="_blank" rel="noopener" aria-label="Listen on Apple Podcasts">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0zm6.525 2.568c2.336 0 4.448.906 6.022 2.38a8.334 8.334 0 012.461 5.86c0 .167-.007.326-.02.49-.12 2.007-.957 3.875-2.344 5.285-1.387 1.41-3.254 2.215-5.261 2.215a7.557 7.557 0 01-3.503-.857A7.569 7.569 0 015.1 12.1a7.555 7.555 0 01-.076-1.058c0-1.93.722-3.79 2.03-5.209 1.307-1.42 3.108-2.28 5.038-2.43.26-.024.513-.034.773-.034zm.004 1.691c-.27 0-.543.01-.81.034a6.928 6.928 0 00-4.898 2.484A6.935 6.935 0 004.84 11.1c0 .363.03.718.076 1.06.28 2.29 1.605 4.302 3.613 5.488a6.9 6.9 0 003.34.857 6.922 6.922 0 006.93-6.929c0-1.934-.76-3.76-2.14-5.13a6.93 6.93 0 00-4.75-1.787zm.002 2.816c1.106 0 2.002.896 2.002 2.002s-.896 2.002-2.002 2.002A2.002 2.002 0 019.869 9.077a2.002 2.002 0 012.002-2.002zm-.023 5.043c1.325-.016 2.637.448 3.675 1.389.17.152.169.412.001.564-.169.152-.432.15-.603-.003A4.25 4.25 0 0011.85 12.96a4.26 4.26 0 00-2.957 1.197.418.418 0 01-.303.122.42.42 0 01-.295-.125.415.415 0 010-.584c1.066-1.003 2.458-1.53 3.909-1.547.083-.001.149-.002.22 0z"/>
+          </svg>
+          Apple Podcasts
+        </a>
+
+        <a href="https://www.youtube.com/@alchemybrandingstudio/podcasts" class="platform-link" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          YouTube
+        </a>
+      </div>
+
+      <div class="hero-scroll fade-in d5">
+        <div class="hero-scroll-line"></div>
+        Scroll to explore
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       LATEST EPISODE
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section" id="latest">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-eyebrow">Latest Episode</div>
+        <h2 class="section-title">Fresh from the feed</h2>
+      </div>
+
+      <div class="latest-grid" id="latestEpisodeContainer">
+        <div class="loading" style="grid-column:1/-1">
+          <div class="spinner"></div>
+          Loading latest episode…
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       YOUTUBE
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section" id="watch">
+    <div class="container">
+      <div class="yt-grid">
+        <div class="yt-embed-wrap fade-in" id="ytEmbedWrap">
+          <a href="https://www.youtube.com/@alchemybrandingstudio/podcasts"
+             class="yt-fallback" id="ytFallback" target="_blank" rel="noopener">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--dragon-fire)" aria-hidden="true">
+              <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            <span>Watch on YouTube</span>
+          </a>
+        </div>
+
+        <div class="yt-content">
+          <div class="section-header fade-in">
+            <div class="section-eyebrow">Watch</div>
+            <h2 class="section-title">On YouTube</h2>
+          </div>
+          <p class="yt-desc fade-in d1">
+            Watch full-length episodes and exclusive behind-the-scenes content from Brand to Scale. Subscribe to catch every new drop, straight to your feed.
+          </p>
+          <div class="fade-in d2">
+            <a href="https://www.youtube.com/@alchemybrandingstudio/podcasts"
+               class="btn btn-primary" target="_blank" rel="noopener">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+              Subscribe on YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ALL EPISODES
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section" id="episodes">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-eyebrow">Archive</div>
+        <h2 class="section-title">All episodes</h2>
+      </div>
+
+      <div class="episodes-list fade-in" id="episodesListContainer">
+        <div class="loading">
+          <div class="spinner"></div>
+          Loading episodes…
+        </div>
+      </div>
+
+      <div class="ep-pagination" id="epPagination" style="display:none">
+        <button class="ep-pagination-btn" id="epPrev" aria-label="Previous episodes">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          Previous
+        </button>
+        <span class="ep-pagination-info" id="epPageInfo"></span>
+        <button class="ep-pagination-btn" id="epNext" aria-label="Next episodes">
+          Next
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       APPLY
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section apply-section" id="apply">
+    <div class="container">
+      <div class="apply-inner">
+
+        <div class="fade-in">
+          <div class="section-eyebrow">Be Our Guest</div>
+          <h2 class="section-title">Apply to be on the podcast</h2>
+          <p class="apply-intro">Got a brand story worth telling? We want to hear from founders, leaders and brand builders who've been through the journey — the wins, the pivots and the lessons learned.</p>
+        </div>
+
+        <div class="apply-form fade-in d1">
+          <!-- Netlify Forms: works automatically on Netlify deployment.
+               For Vercel, replace action="#" with a Formspree endpoint:
+               action="https://formspree.io/f/YOUR_ID" method="POST" -->
+          <form name="podcast-application" data-netlify="true" netlify-honeypot="bot-field" id="applyForm">
+            <input type="hidden" name="form-name" value="podcast-application">
+            <p style="display:none"><input name="bot-field"></p>
+
+            <div class="apply-fields">
+              <div class="apply-field">
+                <label for="applyName">Your name</label>
+                <input type="text" id="applyName" name="name" placeholder="Jane Smith" required>
+              </div>
+              <div class="apply-field">
+                <label for="applyCompany">Company / Brand</label>
+                <input type="text" id="applyCompany" name="company" placeholder="Acme Co." required>
+              </div>
+              <div class="apply-field">
+                <label for="applyEmail">Email address</label>
+                <input type="email" id="applyEmail" name="email" placeholder="jane@acmeco.com" required>
+              </div>
+              <div class="apply-field">
+                <label for="applyWebsite">Website <span class="apply-optional">(optional)</span></label>
+                <input type="url" id="applyWebsite" name="website" placeholder="https://acmeco.com">
+              </div>
+              <div class="apply-field apply-field--full">
+                <label for="applyStory">Your brand story</label>
+                <textarea id="applyStory" name="story" rows="5" placeholder="Tell us about your brand journey — what makes your story worth sharing?" required></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary apply-submit">
+              Apply to be a guest
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+          </form>
+
+          <div class="apply-success" id="applySuccess">
+            <div class="apply-success-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </div>
+            <h3>Application received!</h3>
+            <p>Thanks for reaching out. We'll be in touch if your story is a great fit for the show.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ABOUT STRIP
+  ═══════════════════════════════════════════════════════════ -->
+  <div class="about-strip">
+    <div class="about-strip-inner">
+      <div>
+        <h2 class="about-strip-title">An <span style="color:#65C2C4">Echo Works</span> production for Alchemy</h2>
+        <p class="about-strip-text">
+          Brand to Scale is produced by <a href="https://echoworks.io" target="_blank" rel="noopener" class="about-link">Echo Works</a> — a podcast and content production studio bringing brand stories to life — on behalf of <a href="https://alchemybranding.studio" target="_blank" rel="noopener" class="about-link">Alchemy Branding Studio</a>, a creative agency helping ambitious businesses build brands that stand out and scale up.
+        </p>
+      </div>
+      <div class="about-logos">
+        <a href="https://echoworks.io" target="_blank" rel="noopener" aria-label="Echo Works">
+          <img src="images/Echo_Works_logo.png" alt="Echo Works" class="echo-works-logo">
+        </a>
+        <span class="about-logos-sep"></span>
+        <a href="https://alchemybranding.studio" target="_blank" rel="noopener" aria-label="Alchemy Branding Studio">
+          <img src="images/Alchemy_Black.png" alt="Alchemy Branding Studio" class="alchemy-logo-about">
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <a href="#" class="footer-logo">
+        <img src="images/Logo_White.png" alt="Brand to Scale" class="footer-logo-img">
+      </a>
+
+      <div class="footer-platforms">
+        <a href="#" class="footer-platform" data-platform="spotify" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+          </svg>
+          Spotify
+        </a>
+        <a href="#" class="footer-platform" data-platform="apple" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0zm6.525 2.568c2.336 0 4.448.906 6.022 2.38a8.334 8.334 0 012.461 5.86c0 .167-.007.326-.02.49-.12 2.007-.957 3.875-2.344 5.285-1.387 1.41-3.254 2.215-5.261 2.215a7.557 7.557 0 01-3.503-.857A7.569 7.569 0 015.1 12.1a7.555 7.555 0 01-.076-1.058c0-1.93.722-3.79 2.03-5.209 1.307-1.42 3.108-2.28 5.038-2.43.26-.024.513-.034.773-.034zm.004 1.691c-.27 0-.543.01-.81.034a6.928 6.928 0 00-4.898 2.484A6.935 6.935 0 004.84 11.1c0 .363.03.718.076 1.06.28 2.29 1.605 4.302 3.613 5.488a6.9 6.9 0 003.34.857 6.922 6.922 0 006.93-6.929c0-1.934-.76-3.76-2.14-5.13a6.93 6.93 0 00-4.75-1.787zm.002 2.816c1.106 0 2.002.896 2.002 2.002s-.896 2.002-2.002 2.002A2.002 2.002 0 019.869 9.077a2.002 2.002 0 012.002-2.002zm-.023 5.043c1.325-.016 2.637.448 3.675 1.389.17.152.169.412.001.564-.169.152-.432.15-.603-.003A4.25 4.25 0 0011.85 12.96a4.26 4.26 0 00-2.957 1.197.418.418 0 01-.303.122.42.42 0 01-.295-.125.415.415 0 010-.584c1.066-1.003 2.458-1.53 3.909-1.547.083-.001.149-.002.22 0z"/>
+          </svg>
+          Apple Podcasts
+        </a>
+        <a href="https://www.youtube.com/@alchemybrandingstudio/podcasts" class="footer-platform" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          YouTube
+        </a>
+      </div>
+
+      <div class="footer-copy">
+        <span>&copy; <span id="year"></span> Brand to Scale.</span>
+        <a href="https://alchemybranding.studio" target="_blank" rel="noopener" aria-label="Alchemy Branding Studio" style="display:inline-flex;align-items:center;">
+          <img src="images/Alchemy_White.png" alt="Alchemy Branding Studio" class="alchemy-logo-img">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // ─── CONFIG ─────────────────────────────────────────────────
+    const CONFIG = {
+      rssUrl:       'https://feeds.transistor.fm/brand-to-scale',
+      proxyBase:    'https://api.allorigins.win/get?url=',
+      spotifyUrl:   '',   // e.g. 'https://open.spotify.com/show/XXXXXXXXXX'
+      appleUrl:     '',   // e.g. 'https://podcasts.apple.com/podcast/brand-to-scale/id...'
+      ytChannel:      'https://www.youtube.com/@alchemybrandingstudio/podcasts',
+      ytPlaylistId:   'PLYxVX2SN4SFfN_SNkRRCYJo1T6hYH82JI',
+      ytFirstVideoId: 'LN9Q21ebjU0',  // first video in playlist — embed starts here
+    };
+
+    // ─── FETCH HELPER ────────────────────────────────────────────
+    // 1. Same-origin proxy (Netlify redirect / Vercel rewrite — no CORS, fastest)
+    // 2–4. Public CORS proxies as progressive fallbacks
+    async function fetchText(url, sameSitePath) {
+      const AC = (ms) => { try { return AbortSignal.timeout(ms); } catch { return undefined; } };
+
+      // 1. Same-origin proxy (netlify.toml / vercel.json rewrite)
+      if (sameSitePath) {
+        try {
+          const r = await fetch(sameSitePath, { signal: AC(7000) });
+          if (r.ok) return await r.text();
+        } catch {}
+      }
+
+      // 2. allorigins.win — returns JSON {contents: "..."}
+      try {
+        const r = await fetch(
+          `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+          { signal: AC(10000) }
+        );
+        if (r.ok) {
+          const d = await r.json();
+          if (d.contents) return d.contents;
+        }
+      } catch {}
+
+      // 3. corsproxy.io — plain proxy
+      try {
+        const r = await fetch(`https://corsproxy.io/?${encodeURIComponent(url)}`, { signal: AC(10000) });
+        if (r.ok) return await r.text();
+      } catch {}
+
+      // 4. codetabs — final fallback
+      try {
+        const r = await fetch(
+          `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
+          { signal: AC(10000) }
+        );
+        if (r.ok) return await r.text();
+      } catch {}
+
+      throw new Error(`All proxies failed for ${url}`);
+    }
+
+    // ─── NAV SCROLL ──────────────────────────────────────────────
+    const mainNav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      mainNav.classList.toggle('scrolled', window.scrollY > 24);
+    }, { passive: true });
+
+    // ─── HAMBURGER ───────────────────────────────────────────────
+    const burger    = document.getElementById('navBurger');
+    const mobileNav = document.getElementById('navMobile');
+
+    burger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      burger.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open);
+      mobileNav.setAttribute('aria-hidden', !open);
+    });
+
+    mobileNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', false);
+        mobileNav.setAttribute('aria-hidden', true);
+      });
+    });
+
+    // ─── INTERSECTION OBSERVER ANIMATIONS ────────────────────────
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+    // Hero elements animate on load without scroll
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        document.querySelectorAll('.hero .fade-in').forEach(el => el.classList.add('visible'));
+      }, 80);
+    });
+
+    // ─── UTILS ───────────────────────────────────────────────────
+    const ITUNES_NS = 'http://www.itunes.com/dtds/podcast-1.0.dtd';
+
+    function getText(parent, tagName) {
+      return parent.getElementsByTagName(tagName)[0]?.textContent?.trim() || '';
+    }
+
+    function getItunesAttr(parent, tag, attr) {
+      return (
+        parent.getElementsByTagNameNS(ITUNES_NS, tag)[0]?.getAttribute(attr) ||
+        parent.getElementsByTagName(`itunes:${tag}`)[0]?.getAttribute(attr) ||
+        ''
+      );
+    }
+
+    function getItunesText(parent, tag) {
+      return (
+        parent.getElementsByTagNameNS(ITUNES_NS, tag)[0]?.textContent?.trim() ||
+        parent.getElementsByTagName(`itunes:${tag}`)[0]?.textContent?.trim() ||
+        ''
+      );
+    }
+
+    function stripHtml(html) {
+      const d = document.createElement('div');
+      d.innerHTML = html;
+      return (d.textContent || d.innerText || '').replace(/\s+/g, ' ').trim();
+    }
+
+    function truncate(str, len) {
+      const s = stripHtml(str);
+      return s.length <= len ? s : s.slice(0, len).replace(/\s\S*$/, '') + '…';
+    }
+
+    function formatDate(str) {
+      if (!str) return '';
+      return new Date(str).toLocaleDateString('en-GB', {
+        day: 'numeric', month: 'long', year: 'numeric'
+      });
+    }
+
+    function formatDuration(d) {
+      if (!d) return '';
+      const p = d.split(':');
+      if (p.length === 3) {
+        const h = parseInt(p[0]), m = parseInt(p[1]);
+        return h > 0 ? `${h}h ${m}m` : `${m}m`;
+      }
+      if (p.length === 2) return `${parseInt(p[0])}m`;
+      const s = parseInt(d);
+      if (!isNaN(s)) {
+        const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60);
+        return h > 0 ? `${h}h ${m}m` : `${m}m`;
+      }
+      return d;
+    }
+
+    // Episode IDs can be alphanumeric or hyphenated (e.g. a1b2c3d4-ef56-...)
+    const EP_ID_RE = /[a-zA-Z0-9][a-zA-Z0-9-]{3,}/;
+
+    function extractEpisodeId(url) {
+      const m = (url || '').match(/share\.transistor\.fm\/(?:s|e)\/([a-zA-Z0-9-]+)/);
+      return m ? m[1] : null;
+    }
+
+    // Tries GUID, link, then enclosure URL — all with hyphen-safe patterns
+    function getEpisodeId(item) {
+      const guid   = getText(item, 'guid');
+      const link   = getText(item, 'link');
+      for (const u of [guid, link]) {
+        const m = (u || '').match(/share\.transistor\.fm\/(?:s|e)\/([a-zA-Z0-9-]+)/);
+        if (m) return m[1];
+      }
+      // Enclosure: https://media.transistor.fm/EPISODE_ID/filename.mp3
+      const encUrl = item.querySelector('enclosure')?.getAttribute('url') || '';
+      const m2 = encUrl.match(/media\.transistor\.fm\/([a-zA-Z0-9-]+)\//);
+      if (m2) return m2[1];
+      return null;
+    }
+
+    const MUSIC_ICON = `<svg width="28" height="28" viewBox="0 0 24 24" fill="rgba(254,109,76,0.4)" aria-hidden="true"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>`;
+
+    // ─── PLATFORM URL HELPERS ────────────────────────────────────
+    function updatePlatformLinks(platform, url) {
+      if (!url) return;
+      document.querySelectorAll(`[data-platform="${platform}"]`).forEach(el => {
+        el.href = url;
+      });
+    }
+
+    function tryExtractPlatformUrls(xml) {
+      // Scan all href/src attributes in channel for known platform URLs
+      const channel = xml.querySelector('channel');
+      if (!channel) return;
+
+      const walk = (attr) => {
+        Array.from(channel.querySelectorAll(`[${attr}]`)).forEach(el => {
+          const v = el.getAttribute(attr) || '';
+          if (!CONFIG.spotifyUrl && v.includes('open.spotify.com/show')) {
+            CONFIG.spotifyUrl = v;
+            updatePlatformLinks('spotify', v);
+          }
+          if (!CONFIG.appleUrl && v.includes('podcasts.apple.com')) {
+            CONFIG.appleUrl = v;
+            updatePlatformLinks('apple', v);
+          }
+        });
+      };
+
+      walk('href');
+      walk('url');
+
+      // Check text content of elements that might contain platform URLs
+      Array.from(channel.children).forEach(el => {
+        const text = el.textContent || '';
+        if (!CONFIG.spotifyUrl) {
+          const m = text.match(/https:\/\/open\.spotify\.com\/show\/[A-Za-z0-9]+/);
+          if (m) { CONFIG.spotifyUrl = m[0]; updatePlatformLinks('spotify', m[0]); }
+        }
+        if (!CONFIG.appleUrl) {
+          const m = text.match(/https:\/\/podcasts\.apple\.com\/[^\s"<>]+/);
+          if (m) { CONFIG.appleUrl = m[0]; updatePlatformLinks('apple', m[0]); }
+        }
+      });
+    }
+
+    // ─── RSS FEED ────────────────────────────────────────────────
+    async function loadRSS() {
+      try {
+        const rawXml = await fetchText(CONFIG.rssUrl, '/_rss');
+        const parser = new DOMParser();
+        const xml    = parser.parseFromString(rawXml, 'text/xml');
+
+        if (xml.querySelector('parsererror')) throw new Error('XML parse error');
+
+        const items = Array.from(xml.querySelectorAll('item'));
+        if (!items.length) throw new Error('No episodes');
+
+        // Try to find platform URLs in feed
+        tryExtractPlatformUrls(xml);
+
+        // Channel-level artwork fallback
+        const channelArt =
+          getItunesAttr(xml.querySelector('channel') || xml, 'image', 'href') ||
+          getText(xml.querySelector('channel image') || xml, 'url') || '';
+
+        renderLatest(items[0], channelArt);
+        renderList(items.slice(1), channelArt);
+
+      } catch (err) {
+        console.error('[RSS]', err);
+        const errHtml = `<div style="grid-column:1/-1;color:rgba(250,248,247,0.4);font-size:14px;padding:8px 0">
+          Unable to load episodes. <a href="${CONFIG.rssUrl}" style="color:var(--dragon-fire)">View RSS feed ↗</a>
+        </div>`;
+        document.getElementById('latestEpisodeContainer').innerHTML = errHtml;
+        document.getElementById('episodesListContainer').innerHTML =
+          '<div style="color:rgba(250,248,247,0.4);font-size:14px;padding:8px 0">Unable to load episodes.</div>';
+      }
+    }
+
+    function renderLatest(item, fallbackArt) {
+      const title   = getText(item, 'title') || 'Untitled Episode';
+      const desc    = getText(item, 'description') || getItunesText(item, 'summary') || '';
+      const pubDate = getText(item, 'pubDate');
+      const dur     = getItunesText(item, 'duration');
+      const epNum   = getItunesText(item, 'episode');
+      const art     = getItunesAttr(item, 'image', 'href') || fallbackArt;
+
+      // Episode ID — tries GUID, link, and enclosure URL
+      const epId    = getEpisodeId(item);
+      const guid    = getText(item, 'guid');
+      const link    = getText(item, 'link');
+      const shareUrl = [guid, link].find(u => u && u.startsWith('http')) || '';
+
+      // Use official Transistor embed URL (share.transistor.fm/e/).
+      // If the episode ID couldn't be parsed, fall back to the show-level player
+      // which always loads the latest episode automatically.
+      const playerSrc = epId
+        ? `https://share.transistor.fm/e/${epId}`
+        : `https://player.transistor.fm/shows/brand-to-scale`;
+
+      const playerHtml = `<div class="ep-player">
+           <iframe
+             src="${playerSrc}"
+             width="100%"
+             height="180"
+             frameborder="0"
+             scrolling="no"
+             seamless="true"
+             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+             title="Play: ${title.replace(/"/g, '&quot;')}">
+           </iframe>
+         </div>`;
+
+      const html = `
+        <div class="ep-artwork fade-in">
+          ${art
+            ? `<img src="${art}" alt="Artwork for ${title.replace(/"/g, '&quot;')}" loading="lazy">`
+            : `<div class="ep-artwork-placeholder">${MUSIC_ICON}</div>`}
+        </div>
+        <div class="fade-in d1">
+          <div class="ep-meta">
+            ${epNum ? `<span class="ep-number">Ep. ${epNum}</span>` : ''}
+            ${pubDate ? `<span class="ep-date">${formatDate(pubDate)}</span>` : ''}
+            ${dur ? `<span class="ep-duration">${formatDuration(dur)}</span>` : ''}
+          </div>
+          <h3 class="ep-title">${title}</h3>
+          <p class="ep-desc">${truncate(desc, 320)}</p>
+          ${playerHtml}
+          <div class="ep-actions">
+            ${CONFIG.spotifyUrl
+              ? `<a href="${CONFIG.spotifyUrl}" class="btn btn-primary btn-sm" data-platform="spotify" target="_blank" rel="noopener">
+                   <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                   Follow on Spotify
+                 </a>`
+              : `<a href="https://feeds.transistor.fm/brand-to-scale" class="btn btn-primary btn-sm" target="_blank" rel="noopener">
+                   Subscribe to Podcast
+                 </a>`}
+            ${CONFIG.appleUrl
+              ? `<a href="${CONFIG.appleUrl}" class="btn btn-outline btn-sm" data-platform="apple" target="_blank" rel="noopener">
+                   <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                   Listen on Apple
+                 </a>`
+              : ''}
+            ${shareUrl
+              ? `<a href="${shareUrl}" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Full Episode →</a>`
+              : ''}
+          </div>
+        </div>`;
+
+      document.getElementById('latestEpisodeContainer').innerHTML = html;
+      document.querySelectorAll('#latestEpisodeContainer .fade-in').forEach(el => io.observe(el));
+    }
+
+    function renderList(items, fallbackArt) {
+      const container  = document.getElementById('episodesListContainer');
+      const pagination = document.getElementById('epPagination');
+      const prevBtn    = document.getElementById('epPrev');
+      const nextBtn    = document.getElementById('epNext');
+      const pageInfo   = document.getElementById('epPageInfo');
+
+      if (!items.length) {
+        container.innerHTML = '<p style="color:rgba(250,248,247,0.4);font-size:14px;padding:8px 0">No additional episodes yet.</p>';
+        return;
+      }
+
+      const PER_PAGE   = 4;
+      let   curPage    = 0;
+      const totalPages = Math.ceil(items.length / PER_PAGE);
+      const PLAY_ICON  = `<svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true"><path d="M0 0L10 6 0 12z"/></svg>`;
+
+      function buildHtml(pageItems) {
+        return pageItems.map(item => {
+          const title   = getText(item, 'title') || 'Untitled Episode';
+          const desc    = getText(item, 'description') || '';
+          const pubDate = getText(item, 'pubDate');
+          const dur     = getItunesText(item, 'duration');
+          const epNum   = getItunesText(item, 'episode');
+          const art     = getItunesAttr(item, 'image', 'href') || fallbackArt;
+          const guid    = getText(item, 'guid');
+          const link    = getText(item, 'link');
+          const href    = [guid, link].find(u => u && u.startsWith('http')) || '#';
+          const epId    = getEpisodeId(item);
+
+          return `<div class="ep-row"${epId ? ` data-epid="${epId}"` : ''}>
+            ${art
+              ? `<img class="ep-row-thumb" src="${art}" alt="" loading="lazy">`
+              : `<div class="ep-row-thumb-ph">${MUSIC_ICON}</div>`}
+            <div class="ep-row-body">
+              <div class="ep-row-meta">
+                ${epNum ? `<span class="ep-row-num">Ep. ${epNum}</span>` : ''}
+                ${pubDate ? `<span class="ep-row-date">${formatDate(pubDate)}</span>` : ''}
+              </div>
+              <a class="ep-row-title" href="${href}" target="_blank" rel="noopener">${title}</a>
+              <div class="ep-row-desc">${truncate(desc, 180)}</div>
+            </div>
+            <div class="ep-row-right">
+              ${dur ? `<span class="ep-row-dur">${formatDuration(dur)}</span>` : ''}
+              ${epId
+                ? `<button class="ep-row-play" aria-label="Play episode">${PLAY_ICON}</button>`
+                : `<a href="${href}" target="_blank" rel="noopener" class="ep-row-arrow" aria-label="Open episode">
+                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                       <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+                     </svg>
+                   </a>`}
+            </div>
+          </div>`;
+        }).join('');
+      }
+
+      function showPage(page, dir) {
+        curPage = page;
+        container.classList.remove('ep-slide-next', 'ep-slide-prev');
+        container.innerHTML = buildHtml(items.slice(page * PER_PAGE, (page + 1) * PER_PAGE));
+        void container.offsetWidth; // force reflow to restart animation
+        if (dir) container.classList.add(dir === 'next' ? 'ep-slide-next' : 'ep-slide-prev');
+
+        prevBtn.disabled = page === 0;
+        nextBtn.disabled = page >= totalPages - 1;
+        pageInfo.textContent = `${page + 1} of ${totalPages}`;
+        initEpisodePlayers();
+      }
+
+      if (totalPages > 1) {
+        pagination.style.display = 'flex';
+        prevBtn.onclick = () => { if (curPage > 0) showPage(curPage - 1, 'prev'); };
+        nextBtn.onclick = () => { if (curPage < totalPages - 1) showPage(curPage + 1, 'next'); };
+      }
+
+      showPage(0, null);
+    }
+
+    function initEpisodePlayers() {
+      const PLAY_ICON  = `<svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true"><path d="M0 0L10 6 0 12z"/></svg>`;
+      const PAUSE_ICON = `<svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><rect x="0" y="0" width="3.5" height="10" rx="1"/><rect x="6.5" y="0" width="3.5" height="10" rx="1"/></svg>`;
+
+      function closeAll() {
+        document.querySelectorAll('.ep-inline-player').forEach(p => p.remove());
+        document.querySelectorAll('.ep-row-play.playing').forEach(b => {
+          b.classList.remove('playing');
+          b.innerHTML = PLAY_ICON;
+          b.setAttribute('aria-label', 'Play episode');
+        });
+      }
+
+      document.querySelectorAll('[data-epid]').forEach(row => {
+        const btn = row.querySelector('.ep-row-play');
+        if (!btn) return;
+
+        btn.addEventListener('click', () => {
+          const isOpen = row.nextElementSibling?.classList.contains('ep-inline-player');
+          closeAll();
+
+          if (!isOpen) {
+            const epId   = row.dataset.epid;
+            const player = document.createElement('div');
+            player.className = 'ep-inline-player';
+            player.innerHTML = `<iframe
+              src="https://share.transistor.fm/e/${epId}"
+              width="100%"
+              height="180"
+              frameborder="0"
+              scrolling="no"
+              seamless="true"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              title="Episode player">
+            </iframe>`;
+            row.insertAdjacentElement('afterend', player);
+            btn.classList.add('playing');
+            btn.innerHTML = PAUSE_ICON;
+            btn.setAttribute('aria-label', 'Stop playing');
+            setTimeout(() => player.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80);
+          }
+        });
+      });
+    }
+
+    // ─── YOUTUBE ─────────────────────────────────────────────────
+    // Parses a YouTube RSS XML string and returns the first video ID found
+    function parseYtRss(xmlText) {
+      try {
+        const doc   = new DOMParser().parseFromString(xmlText, 'text/xml');
+        if (doc.querySelector('parsererror')) return null;
+        const YT_NS = 'http://www.youtube.com/xml/schemas/2015';
+        for (const entry of doc.getElementsByTagName('entry')) {
+          const vidEl = entry.getElementsByTagNameNS(YT_NS, 'videoId')[0];
+          if (vidEl?.textContent?.trim()) return vidEl.textContent.trim();
+          const linkEl = entry.querySelector('link');
+          if (linkEl) {
+            const m = (linkEl.getAttribute('href') || '').match(/[?&]v=([A-Za-z0-9_-]{11})/);
+            if (m) return m[1];
+          }
+        }
+      } catch {}
+      return null;
+    }
+
+    async function loadYouTube() {
+      const wrap = document.getElementById('ytEmbedWrap');
+      const AC   = (ms) => { try { return AbortSignal.timeout(ms); } catch { return undefined; } };
+      let videoId = null;
+
+      // ── Shortcut: embed first video in playlist (most reliable — no API calls) ──
+      // !! If you see "Error 153 — Video player configuration error":
+      //    YouTube Studio → Content → click video → Details → More options
+      //    → Distribution → tick "Allow embedding" → Save. Do this for every video.
+      if (CONFIG.ytPlaylistId && CONFIG.ytFirstVideoId) {
+        document.getElementById('ytFallback')?.remove();
+        wrap.insertAdjacentHTML('beforeend',
+          `<iframe
+            src="https://www.youtube.com/embed/videoseries?list=${CONFIG.ytPlaylistId}&rel=0"
+            title="Brand to Scale — latest episode on YouTube"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>`
+        );
+        return;
+      }
+
+      // ── Strategy 1: Legacy YouTube username RSS (no channel ID needed) ──────
+      // Works if the channel's username matches the handle (often the case)
+      if (!videoId) {
+        try {
+          const xml = await fetchText(
+            'https://www.youtube.com/feeds/videos.xml?user=alchemybrandingstudio'
+          );
+          videoId = parseYtRss(xml);
+          if (videoId) console.log('[YouTube] Found via user RSS');
+        } catch {}
+      }
+
+      // ── Strategy 2: Piped API (open YouTube frontend, no API key) ───────────
+      // Returns JSON with relatedStreams array including video URLs
+      if (!videoId) {
+        const pipedHosts = [
+          'https://pipedapi.kavin.rocks',
+          'https://pipedapi.adminforge.de',
+          'https://piped-api.codespace.cz',
+        ];
+        for (const host of pipedHosts) {
+          try {
+            const r = await fetch(
+              `${host}/channel/@alchemybrandingstudio`,
+              { signal: AC(6000) }
+            );
+            if (!r.ok) continue;
+            const d = await r.json();
+            const first = (d.relatedStreams || []).find(s => s.type === 'stream');
+            if (first?.url) {
+              const m = first.url.match(/(?:v=|\/shorts\/)([A-Za-z0-9_-]{11})/);
+              if (m) { videoId = m[1]; console.log('[YouTube] Found via Piped:', host); break; }
+            }
+          } catch {}
+        }
+      }
+
+      // ── Strategy 3: Invidious API (another open YouTube frontend) ───────────
+      if (!videoId) {
+        const invHosts = [
+          'https://inv.nadeko.net',
+          'https://invidious.io.lol',
+          'https://yt.artemislena.eu',
+        ];
+        for (const host of invHosts) {
+          try {
+            const r = await fetch(
+              `${host}/api/v1/channels/@alchemybrandingstudio?fields=latestVideos`,
+              { signal: AC(6000) }
+            );
+            if (!r.ok) continue;
+            const d = await r.json();
+            const first = (d.latestVideos || [])[0];
+            if (first?.videoId) {
+              videoId = first.videoId;
+              console.log('[YouTube] Found via Invidious:', host);
+              break;
+            }
+          } catch {}
+        }
+      }
+
+      // ── Strategy 4: Scrape channel page for channel ID, then fetch RSS ──────
+      if (!videoId) {
+        try {
+          const pageHtml = await fetchText(
+            'https://www.youtube.com/@alchemybrandingstudio', '/_yt'
+          );
+          const CH_PATTERNS = [
+            /"channelId":"(UC[A-Za-z0-9_-]{20,})"/,
+            /"externalChannelId":"(UC[A-Za-z0-9_-]{20,})"/,
+            /"browseId":"(UC[A-Za-z0-9_-]{20,})"/,
+            /\/channel\/(UC[A-Za-z0-9_-]{20,})/,
+          ];
+          let channelId = null;
+          for (const p of CH_PATTERNS) {
+            const m = pageHtml.match(p);
+            if (m) { channelId = m[1]; break; }
+          }
+          if (channelId) {
+            const xml = await fetchText(
+              `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`
+            );
+            videoId = parseYtRss(xml);
+            if (videoId) console.log('[YouTube] Found via channel page scrape');
+          }
+        } catch {}
+      }
+
+      // ── Inject embed or leave fallback card ─────────────────────────────────
+      if (!videoId) {
+        console.warn('[YouTube] All strategies failed — fallback card shown');
+        return;
+      }
+
+      document.getElementById('ytFallback')?.remove();
+      wrap.insertAdjacentHTML('beforeend',
+        `<iframe
+          src="https://www.youtube.com/embed/${videoId}?rel=0"
+          title="Brand to Scale — latest episode on YouTube"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>`
+      );
+    }
+
+    // ─── APPLY FORM ──────────────────────────────────────────────
+    const applyForm    = document.getElementById('applyForm');
+    const applySuccess = document.getElementById('applySuccess');
+    if (applyForm) {
+      applyForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(applyForm);
+        try {
+          const r = await fetch('/', { method: 'POST', body: data });
+          if (r.ok) {
+            applyForm.style.display = 'none';
+            applySuccess.style.display = 'block';
+          } else {
+            applyForm.submit(); // fallback: native submit
+          }
+        } catch {
+          applyForm.submit();
+        }
+      });
+    }
+
+    // ─── FOOTER YEAR ─────────────────────────────────────────────
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ─── INIT ─────────────────────────────────────────────────────
+    loadRSS();
+    loadYouTube();
+  </script>
+</body>
+</html>

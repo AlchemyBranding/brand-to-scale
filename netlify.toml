@@ -1,0 +1,19 @@
+# Brand to Scale — Netlify configuration
+# The [[redirects]] below act as server-side proxies, eliminating CORS for
+# the RSS and YouTube page fetches. status=200 means a transparent rewrite
+# (the client always sees the /_rss or /_yt path, Netlify fetches upstream).
+
+[build]
+  publish = "."
+
+[[redirects]]
+  from   = "/_rss"
+  to     = "https://feeds.transistor.fm/brand-to-scale"
+  status = 200
+  force  = true
+
+[[redirects]]
+  from   = "/_yt"
+  to     = "https://www.youtube.com/@alchemybrandingstudio"
+  status = 200
+  force  = true
