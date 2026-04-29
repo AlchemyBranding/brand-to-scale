@@ -1381,6 +1381,36 @@
     </div>
   </footer>
 
+  <!-- ── COOKIE CONSENT BANNER ───────────────────────────────── -->
+  <div id="cookieBanner" style="
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(120%);
+    width: calc(100% - 48px); max-width: 700px; z-index: 9999;
+    background: #242424; border: 1px solid rgba(250,248,247,0.1); border-radius: 12px;
+    padding: 20px 24px; display: flex; align-items: center; justify-content: space-between;
+    gap: 20px; flex-wrap: wrap;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    opacity: 0; transition: transform 0.4s ease, opacity 0.4s ease;">
+    <p style="margin:0; font-size:13px; color:rgba(250,248,247,0.65); line-height:1.5; flex:1; min-width:200px;">
+      We use cookies to understand how people find and use this site.
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener"
+         style="color:#FE6D4C; text-decoration:none;">Learn more</a>
+    </p>
+    <div style="display:flex; gap:10px; flex-shrink:0;">
+      <button id="cookieDecline" style="
+        padding: 9px 18px; border-radius: 6px; border: 1px solid rgba(250,248,247,0.15);
+        background: transparent; color: rgba(250,248,247,0.5); font-size: 13px;
+        font-weight: 600; cursor: pointer; font-family: inherit; transition: color 0.2s;">
+        Decline
+      </button>
+      <button id="cookieAccept" style="
+        padding: 9px 18px; border-radius: 6px; border: none;
+        background: #FE6D4C; color: #fff; font-size: 13px;
+        font-weight: 700; cursor: pointer; font-family: inherit;
+        letter-spacing: 0.04em; text-transform: uppercase; transition: opacity 0.2s;">
+        Accept
+      </button>
+    </div>
+  </div>
 
   <script>
     // ─── CONFIG ─────────────────────────────────────────────────
@@ -2052,37 +2082,6 @@
     loadRSS();
     loadYouTube();
   </script>
-
-  <!-- ── COOKIE CONSENT BANNER ───────────────────────────────── -->
-  <div id="cookieBanner" style="
-    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(120%);
-    width: calc(100% - 48px); max-width: 700px; z-index: 9999;
-    background: #242424; border: 1px solid rgba(250,248,247,0.1); border-radius: 12px;
-    padding: 20px 24px; display: flex; align-items: center; justify-content: space-between;
-    gap: 20px; flex-wrap: wrap;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-    opacity: 0; transition: transform 0.4s ease, opacity 0.4s ease;">
-    <p style="margin:0; font-size:13px; color:rgba(250,248,247,0.65); line-height:1.5; flex:1; min-width:200px;">
-      We use cookies to understand how people find and use this site.
-      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener"
-         style="color:#FE6D4C; text-decoration:none;">Learn more</a>
-    </p>
-    <div style="display:flex; gap:10px; flex-shrink:0;">
-      <button id="cookieDecline" style="
-        padding: 9px 18px; border-radius: 6px; border: 1px solid rgba(250,248,247,0.15);
-        background: transparent; color: rgba(250,248,247,0.5); font-size: 13px;
-        font-weight: 600; cursor: pointer; font-family: inherit; transition: color 0.2s;">
-        Decline
-      </button>
-      <button id="cookieAccept" style="
-        padding: 9px 18px; border-radius: 6px; border: none;
-        background: #FE6D4C; color: #fff; font-size: 13px;
-        font-weight: 700; cursor: pointer; font-family: inherit;
-        letter-spacing: 0.04em; text-transform: uppercase; transition: opacity 0.2s;">
-        Accept
-      </button>
-    </div>
-  </div>
 
 </body>
 </html>
