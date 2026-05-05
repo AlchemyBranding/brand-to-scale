@@ -18,21 +18,14 @@
   <meta name="google-site-verification" content="i-V0nPBQ55M9Mozx9kq-i3rB222qNmVNIod8xnCMF78">
   <link rel="icon" href="images/Favicon.png" type="image/png">
 
-  <!-- Google Analytics — loaded only after cookie consent -->
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-41W923S3X7"></script>
   <script>
-    function loadGA() {
-      if (window._gaLoaded) return;
-      window._gaLoaded = true;
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-41W923S3X7';
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-41W923S3X7');
-    }
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-41W923S3X7');
+    function loadGA() {} // no-op, kept for consent handler compatibility
   </script>
 
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
