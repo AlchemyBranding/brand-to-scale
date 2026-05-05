@@ -18,15 +18,21 @@
   <meta name="google-site-verification" content="i-V0nPBQ55M9Mozx9kq-i3rB222qNmVNIod8xnCMF78">
   <link rel="icon" href="images/Favicon.png" type="image/png">
 
-  <!-- Google Analytics with Consent Mode v2 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-41W923S3X7"></script>
+  <!-- Google Analytics — loaded only after cookie consent -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    // Default: deny analytics until user consents
-    gtag('consent', 'default', { analytics_storage: 'denied' });
-    gtag('js', new Date());
-    gtag('config', 'G-41W923S3X7');
+    function loadGA() {
+      if (window._gaLoaded) return;
+      window._gaLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-41W923S3X7';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-41W923S3X7');
+    }
   </script>
 
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -2049,7 +2055,7 @@
       const stored     = localStorage.getItem(COOKIE_KEY);
 
       function grantAnalytics() {
-        gtag('consent', 'update', { analytics_storage: 'granted' });
+        loadGA();
       }
       function hideBanner() {
         banner.style.transform = 'translateY(120%)';
@@ -2057,8 +2063,8 @@
         setTimeout(() => banner.remove(), 400);
       }
 
-      // Already decided — apply and hide immediately
-      if (stored === 'accepted') { grantAnalytics(); banner.remove(); return; }
+      // Already accepted — load GA immediately and hide banner
+      if (stored === 'accepted') { loadGA(); banner.remove(); return; }
       if (stored === 'declined') { banner.remove(); return; }
 
       // Show banner after short delay
