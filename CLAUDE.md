@@ -20,14 +20,17 @@ CLAUDE.md    — this file
 ### Colours
 | Name          | Hex       | Usage                              |
 |---------------|-----------|------------------------------------|
-| Dawn          | `#191919` | Primary background                 |
+| Dusk          | `#191919` | Primary background, dark type      |
 | Dragon Fire   | `#FE6D4C` | Accent, CTAs, highlights           |
-| Dusk          | `#FAF8F7` | Light text, light section text     |
+| Dawn          | `#F6F1EB` | Light text, light ground. Never pure white |
 | Pixie Pink    | `#FE86F6` | Secondary accent (available)       |
 | Curious Blue  | `#3052F9` | Secondary accent (available)       |
 | Mindaro       | `#C4FE79` | Secondary accent (available)       |
 | Space Green   | `#00524D` | Secondary accent (available)       |
 | Ultra Violet  | `#9A4EFF` | Secondary accent (available)       |
+
+### Brand refresh (12 Oct 2026)
+Follows the Alchemy brand guidelines (alchemy-marketing-plan/work/2026-10-brand-guidelines). Token names match the guidelines: Dusk is the near-black, Dawn the off-white. Headlines (hero, section titles, about strip) are P22 Mackinac Pro 400 via the Adobe Fonts kit vhr5zqe; Satoshi for everything else. Logos: images/bts-line-dawn.svg (one-line Brand to Scale logo), images/alchemy-wordmark-dawn.svg and -dusk.svg (Alchemy wordmark). The old PNG logos are no longer used. Pink is for episode numbers only.
 
 ### Typography
 - **Primary:** Satoshi (loaded from Fontshare CDN)
