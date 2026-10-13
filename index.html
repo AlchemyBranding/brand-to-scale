@@ -314,25 +314,24 @@
       padding: calc(var(--nav-h) + 80px) var(--pad-x) 100px;
       position: relative;
       overflow: hidden;
-      background-image: url('images/Hero-home.jpg');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
+      background-color: var(--dusk);
     }
 
-    /* Dark scrim — keeps text legible over the photo */
+    /* Jess against the dark wall (827A3514, guidelines slides 29 and 39).
+       As shot: no filter, no wash over the frame. The photo fades into Dusk on the text side only. */
     .hero-orb-1 {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(25, 25, 25, 0.82) 0%,
-        rgba(25, 25, 25, 0.55) 50%,
-        rgba(25, 25, 25, 0.45) 100%
-      );
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 50%;
+      background-image: url('images/hero/jess-dark-wall.jpg');
+      background-size: cover;
+      background-position: 50% 22%;
+      background-repeat: no-repeat;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 38%);
+      mask-image: linear-gradient(to right, transparent 0%, #000 38%);
       pointer-events: none;
-      width: 100%;
-      height: 100%;
     }
     /* Subtle orange glow — top right, kept from original */
     .hero-orb-2 {
@@ -376,12 +375,12 @@
     .hero-headline {
       font-family: var(--font-serif);
       font-weight: 400;
-      font-size: clamp(40px, 6.5vw, 90px);
+      font-size: clamp(40px, 6vw, 80px);
       line-height: 1.02;
       letter-spacing: -0.01em;
       color: var(--dawn);
       margin-bottom: 32px;
-      max-width: 1000px;
+      max-width: 860px;
     }
     .hero-headline em {
       font-style: italic;
@@ -1048,6 +1047,18 @@
       }
     }
 
+    @media (max-width: 900px) {
+      .hero { justify-content: flex-end; padding-top: calc(var(--nav-h) + 50svh); }
+      .hero-orb-1 {
+        width: 100%;
+        bottom: auto;
+        height: 68svh;
+        background-position: 50% 18%;
+        -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+        mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+      }
+    }
+
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-right .btn { display: none; }
@@ -1063,7 +1074,6 @@
       .footer-copy { flex-direction: column; align-items: flex-start; }
       .ep-row { grid-template-columns: 56px 1fr; gap: 14px; }
       .ep-row-thumb, .ep-row-thumb-ph { width: 56px; height: 56px; }
-      .hero { background-position: 70% center; }
     }
   </style>
 </head>
